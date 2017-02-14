@@ -1,16 +1,29 @@
 <template>
-  <div>
-    <p>欢迎使用！| Welcome</p>
-    <p>电动汽车充换电服务网络互动平台</p>
-    <Login></Login>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <Welcome></Welcome>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <Login></Login>
+      </div>
+    </div>
   </div>
 </template>
 <script>
   import Login from './Login.vue'
+  import Welcome from './Welcome.vue'
   export default {
     components: {
-      Login
+      Login,
+      Welcome
     }
   }
 
 </script>
+<style>
+
+
+</style>
