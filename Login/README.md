@@ -1,6 +1,6 @@
 # login
 
-> 用Vue登录页面
+> 用Vue实现登录页面
 
 ## Build Setup
 
