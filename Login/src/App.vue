@@ -1,34 +1,39 @@
 <template>
-  <div id="app">
-    <Top></Top>
-    <MainBody></MainBody>
-    <Foot></Foot>
+  <div class="container" id="app">
+    <div class="row">
+      <LoginNav></LoginNav>
+      <LoginTitle></LoginTitle>
+      <LoginWelcome></LoginWelcome>
+      <Login></Login>
+      <LoginFooter></LoginFooter>
+    </div>
   </div>
 </template>
 <script>
-  import Top from './components/Top.vue'
-  import MainBody from './components/MainBody.vue'
-  import Foot from './components/Foot.vue'
-
+  import LoginNav from './components/LoginNav.vue'
+  import LoginTitle from './components/LoginTitle.vue'
+  import LoginWelcome from './components/LoginWelcome.vue'
+  import Login from './components/Login.vue'
+  import LoginFooter from './components/LoginFooter.vue'
+  import $ from 'jquery'
   export default {
     name: 'app',
     components: {
-      Top,
-      MainBody,
-      Foot
+      LoginNav,
+      LoginTitle,
+      LoginWelcome,
+      Login,
+      LoginFooter
     }
   }
 
 </script>
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-    /*background-image: url('./assets/black.jpg')*/
+<style scoped>
+  * {
+    padding: 0;
+    margin: 0;
   }
+
+  #app {}
 
 </style>

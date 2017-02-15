@@ -1,36 +1,17 @@
 <template>
   <div>
-    <form role="form">
-      <p class="form-heading">请登陆</p>
-      <div class="input-group">
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-user"></span>
-        </span>
-        <input type="text" class="form-control" v-model='username' placeholder="请输入用户名">
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon">
-          <span class="glyphicon glyphicon-lock"></span>
-        </span>
-        <input type="password" class="form-control" v-model='password' placeholder="请输入密码">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" v-model='verifycode' placeholder="请输入验证码" style="width: 50%;">
-        <span id="checkCode" style="cursor: pointer;"></span>
-      </div>
-      <div class="form-group">
-        <div class="checkbox">
-          <input type="checkbox">记住密码
-          <button type="button" class="btn btn-link">忘记密码</button>
-        </div>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-warning" @click="createCode">登陆</button>
-      </div>
-    </form>
+    <span class="color1">用户登陆</span><br>
+    <input type="text" v-model="username" placeholder="请输入用户名"><br>
+    <input type="password" v-model='password' placeholder="请输入密码"><br>
+    <input type="text" v-model='verifycode' placeholder="请输入验证码">
+    <span id="checkCode" style="cursor: pointer;" @click='createCode'></span><br>
+    <input class="color2" type="checkbox">记住密码
+    <a href="#" class="color2">忘记密码</a><br>
+    <button type="submit">登陆</button>
   </div>
 </template>
 <script>
+  import $ from 'jquery'
   export default {
     data() {
       return {
@@ -38,6 +19,10 @@
         password: '',
         verifycode: ''
       }
+    },
+    // 当Vue挂载完成后，自动调用下面的函数。这样页面一加载，验证码就出来了
+    mounted: function () {
+      this.createCode()
     },
     methods: {
       alertU: function () {
@@ -64,7 +49,20 @@
   }
 
 </script>
-<style>
+<style scoped>
+  .color1 {
+    color: #FEFEFD;
+  }
+
+  .color2 {
+    color: #567489;
+  }
+
+  button {
+    background-color: #FFBA26;
+    color: #FEFEFD;
+  }
+
   a:visited,
   a:link {
     text-decoration: none;
