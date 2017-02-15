@@ -1,12 +1,10 @@
 <template>
-  <div class="container" id="app">
-    <div class="row">
-      <LoginNav></LoginNav>
-      <LoginTitle></LoginTitle>
-      <LoginWelcome></LoginWelcome>
-      <Login></Login>
-      <LoginFooter></LoginFooter>
-    </div>
+  <div id="app">
+    <LoginNav></LoginNav>
+    <LoginTitle></LoginTitle>
+    <LoginWelcome></LoginWelcome>
+    <Login></Login>
+    <LoginFooter></LoginFooter>
   </div>
 </template>
 <script>
@@ -29,11 +27,10 @@
 
 </script>
 <style scoped>
-  * {
-    padding: 0;
-    margin: 0;
+  #app {
+    background-color: grey;
+    height: 732px;
+    /* window.screen.availHeight*/
   }
-
-  #app {}
 
 </style>
