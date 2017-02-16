@@ -1,23 +1,24 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="center-block">
-        <p>江苏省电动汽车充换电服务网络互动平台</p>
-      </div>
+  <div class="footer">
+    <div class="brand">
+      <p>江苏省电动汽车充换电服务网络互动平台</p>
     </div>
   </div>
 </template>
 <style scoped>
-  div {
-    display: table;
-    float: none;
-    margin: auto;
-    width: auto;
+  .footer {
+    bottom: 0;
     position: fixed;
-    height: 50px;
-    bottom: 0px;
-    text-align: center
-    /*left: 50%;*/
+    text-align: center;
+    width: 100%;
+  }
+
+  .brand {
+    bottom: 0;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0
   }
 
 </style>

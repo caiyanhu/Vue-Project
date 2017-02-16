@@ -24,13 +24,15 @@
       LoginFooter
     }
   }
+  $(window).resize(function () {
+    var innerHeight = window.innerHeight;
+    $('#app').css('height', innerHeight + 'px');
+  })
 
 </script>
 <style scoped>
   #app {
     background-color: grey;
-    height: 732px;
-    /* window.screen.availHeight*/
   }
 
 </style>
