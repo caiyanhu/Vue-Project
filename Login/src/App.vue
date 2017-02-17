@@ -22,6 +22,10 @@
       LoginWelcome,
       Login,
       LoginFooter
+    },
+    mounted: function () {
+      var innerHeight = window.innerHeight;
+      $('#app').css('height', innerHeight + 'px');
     }
   }
   $(window).resize(function () {
@@ -33,6 +37,7 @@
 <style scoped>
   #app {
     background-color: grey;
+    background-image: url('./assets/bg.png')
   }
 
 </style>

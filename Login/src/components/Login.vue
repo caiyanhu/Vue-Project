@@ -1,50 +1,70 @@
 <template>
   <div class="container">
-    <div class="row">
-      <h2 class="text-center" style="color: #FEFEFD;">用户登陆</h2>
-      <form action="" class="form-horizontal" style="border: 1px double">
-        <div class="form-group">
-          <div class="col-sm-4 col-md-4">
-            <img src="../assets/user1.png" style="width: 30px;height: 34px;border-right: 2px solid;" alt="userlogo">
-            <input class="form-control" id="username" type="text" v-model="username" placeholder="请输入用户名">
+    <div class="row" style="margin-bottom: 46px;">
+      <h4 class="text-center" style="color: #FEFEFD;">用户登陆</h2>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
+              <img src="../assets/user1.png" alt="userlogo" style="width: 15px;height: 17px">
+            </span>
+          <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F" id="username"
+            type="text" v-model="username" placeholder="请输入用户名">
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
+              <img src="../assets/lock1.png" alt="locklogo" style="width: 15px;height: 17px">
+            </span>
+          <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F" id="password"
+            type="password" v-model='password' placeholder="请输入密码">
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-sm-7 col-md-7">
+            <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F" id="verifycode"
+              type="text" v-model='verifycode' placeholder="请输入验证码">
+          </div>
+          <div class="col-sm-5 col-md-5">
+            <span class="form-control" id="checkCode" style="height:44px; cursor: pointer;text-align: center;vertical-align: middle;"
+              @click='createCode'></span>
           </div>
         </div>
-        <div class="form-group">
-          <div class="col-sm-4 col-md-4">
-            <input class="form-control" id="password" type="password" v-model='password' placeholder="请输入密码">
-          </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div style="display: inline;">
+          <input type="checkbox" style="width: 16px;height: 16px;background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;margin-right: 14px; vertical-align: middle;">
+          <span style="vertical-align: middle;color: #67879C;">记住密码</span>
         </div>
-        <div class="form-group">
-          <div class="col-sm-4 col-md-4">
-            <div class="row">
-              <div class="col-sm-7 col-md-7">
-                <input class="form-control" id="verifycode" type="text" v-model='verifycode' placeholder="请输入验证码">
-              </div>
-              <div class="col-sm-5 col-md-5">
-                <span class="form-control" id="checkCode" style="cursor: pointer;" @click='createCode'></span>
-              </div>
-            </div>
-          </div>
+        <div style="float: right;">
+          <a href="#">忘记密码?</a>
         </div>
-        <div class="form-group" style="position: relative;left: 13px;">
-          <div class="row">
-            <div class="col-sm-4 col-md-4">
-              <div style="display: inline;">
-                <input type="checkbox" style="color: #567489;">记住密码
-              </div>
-              <div style="float: right;">
-                <a href="#">忘记密码?</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-4 col-md-4">
-            <button type="submit" class="btn btn-default btn-block" style="background-color: #FFBA26;
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-default btn-block" style="background-color: #FFBA26;
     color: #FEFEFD;">登陆</button>
-          </div>
-        </div>
-      </form>
+      </div>
+      <div class="col-md-4"></div>
     </div>
   </div>
 </template>

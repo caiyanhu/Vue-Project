@@ -1,13 +1,20 @@
 <template>
   <div>
-    <p>
-      <img src="../assets/earth.png" alt="地球">
-      <span class="color1">电动汽车充换电服务</span>
-      <span class="color2">网络互动平台</span>
-    </p>
+    <img src="../assets/earth.png" alt="地球">
+    <h4><span class="color1">电动汽车充换电服务</span>
+      <span class="color2">网络互动平台</span></h4>
   </div>
 </template>
 <style scoped>
+  div {
+    vertical-align: middle;
+  }
+
+  img,
+  h4 {
+    float: left;
+  }
+
   .color1 {
     color: #FEFEFD;
   }
