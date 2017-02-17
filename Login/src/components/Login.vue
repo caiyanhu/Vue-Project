@@ -61,8 +61,8 @@
     <div class="row" style="margin-bottom: 30px;">
       <div class="col-md-4"></div>
       <div class="col-md-4">
-        <button type="submit" class="btn btn-default btn-block" style="background-color: #FFBA26;
-    color: #FEFEFD;">登陆</button>
+        <button type="submit" class="btn btn-default btn-block" style="height:44px;background-color: #FFBA26;
+    color: #FEFEFD;font-size: 16px;font-family: 'Microsoft YaHei'">登陆</button>
       </div>
       <div class="col-md-4"></div>
     </div>
