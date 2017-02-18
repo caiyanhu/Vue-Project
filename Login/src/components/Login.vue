@@ -38,8 +38,15 @@
               type="text" v-model='verifycode' placeholder="请输入验证码">
           </div>
           <div class="col-sm-5 col-md-5">
-            <span class="form-control" id="checkCode" style="height:44px; cursor: pointer;text-align: center;vertical-align: middle;"
-              @click='createCode'></span>
+            <div class="form-control" id="checkCode" style="height:44px; cursor: pointer;text-align: center;background-color: #FFF;padding: 12px;"
+              @click='createCode'>
+              <span id="1"></span>
+              <span id="2"></span>
+              <span id="3"></span>
+              <span id="4"></span>
+              <span id="5"></span>
+              <span id="6"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -99,9 +106,20 @@
           var charNum = Math.floor(Math.random() * 52);
           code += codeChars[charNum];
         }
-        if (checkCode) {
-          checkCode.innerHTML = code;
+        for (let i = 0; i < 6; i++) {
+          let id = "" + (i + 1);
+          var temp = document.getElementById(id);
+          temp.innerHTML = code[i] + "";
+          let anotherId = '#' + (i + 1);
+          var $current = $(anotherId);
+          $current.css("color", this.randomColor())
         }
+      },
+      randomColor: function () {
+        let color1 = Math.floor(Math.random() * 255);
+        let color2 = Math.floor(Math.random() * 255);
+        let color3 = Math.floor(Math.random() * 255);
+        return "rgb(" + color1 + "," + color2 + "," + color3 + ")";
       }
     }
   }

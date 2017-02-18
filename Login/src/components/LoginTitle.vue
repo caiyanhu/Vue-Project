@@ -8,6 +8,7 @@
 <style scoped>
   div {
     vertical-align: middle;
+    margin-bottom: 100px;
   }
 
   img,
