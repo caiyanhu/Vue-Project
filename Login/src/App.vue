@@ -36,7 +36,6 @@
 </script>
 <style scoped>
   #app {
-    background-color: grey;
     background-image: url('./static/images/bg.png');
     background-size: 100% 100%; /*让背景图片宽高自适应不同屏幕尺寸*/
   }
