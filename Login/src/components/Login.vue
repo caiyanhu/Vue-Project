@@ -8,10 +8,10 @@
       <div class="col-md-4">
         <div class="input-group">
           <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
-              <img src="../static/images/user1.png" alt="userlogo" style="width: 15px;height: 17px">
+              <img src="../static/images/user1.png" alt="userlogo" style="width: 15px;height: 17px;">
             </span>
-          <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F" id="username"
-            type="text" v-model="username" placeholder="请输入用户名">
+          <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;color:#FFF;"
+            id="username" type="text" v-model="username" placeholder="请输入用户名">
         </div>
       </div>
       <div class="col-md-4"></div>
@@ -23,8 +23,8 @@
           <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
               <img src="../static/images/lock1.png" alt="locklogo" style="width: 15px;height: 17px">
             </span>
-          <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F" id="password"
-            type="password" v-model='password' placeholder="请输入密码">
+          <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;color:#FFF;"
+            id="password" type="password" v-model='password' placeholder="请输入密码">
         </div>
       </div>
       <div class="col-md-4"></div>
@@ -34,8 +34,8 @@
       <div class="col-md-4">
         <div class="row">
           <div class="col-sm-7 col-md-7">
-            <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F" id="verifycode"
-              type="text" v-model='verifycode' placeholder="请输入验证码">
+            <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;color:#FFF;"
+              id="verifycode" type="text" v-model='verifycode' placeholder="请输入验证码">
           </div>
           <div class="col-sm-5 col-md-5">
             <div class="form-control" id="checkCode" style="height:44px; cursor: pointer;text-align: center;background-color: #FFF;padding: 12px;"
@@ -68,7 +68,7 @@
     <div class="row" style="margin-bottom: 30px;">
       <div class="col-md-4"></div>
       <div class="col-md-4">
-        <button type="submit" class="btn btn-default btn-block" style="height:44px;background-color: #FFBA26;
+        <button type="submit" class="btn btn-default btn-block" @click="alertU" style="height:44px;background-color: #FFBA26;
     color: #FEFEFD;font-size: 16px;font-family: 'Microsoft YaHei'">登陆</button>
       </div>
       <div class="col-md-4"></div>
@@ -126,6 +126,10 @@
 
 </script>
 <style scoped>
+  .col-md-4 {
+    width: 260px;
+  }
+
   a:visited,
   a:link {
     text-decoration: none;
