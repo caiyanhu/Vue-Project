@@ -1,0 +1,70 @@
+.custom_nav_bar_header {
+  height: 30px;
+  min-height: 30px;
+  margin-bottom: 0px;
+  border: none;
+}
+
+.top_header {
+  height: 30px;
+  background: -webkit-linear-gradient(left, rgba(0, 28, 59, 1), rgba(28, 70, 229, 1), rgba(0, 28, 59, 1));
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(left, rgba(0, 28, 59, 1), rgba(28, 70, 229, 1), rgba(0, 28, 59, 1));
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(left, rgba(0, 28, 59, 1), rgba(28, 70, 229, 1), rgba(0, 28, 59, 1));
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(left, rgba(0, 28, 59, 1), rgba(28, 70, 229, 1), rgba(0, 28, 59, 1));
+  /* 标准的语法 */
+}
+
+.top_header .app {
+  font-size: 12px;
+  color: #667789;
+  cursor: pointer;
+  line-height: 30px;
+}
+
+.top_nav_bg {
+  position: relative;
+  height: 57px;
+  overflow: visible;
+  background: url(../images/top_nav_icon.png) center center no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  text-align: center;
+  cursor: pointer;
+}
+
+#menu {
+  float: right;
+  margin-top: 6px;
+  padding-left: 0px;
+}
+
+#menu li {
+  border-right: 1px solid #fff;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: left;
+  color: #fff;
+  list-style: none;
+  font-size: 12px;
+}
+
+#menu li:last-child {
+  border-right: 0;
+  padding-right: 0px;
+}
+
+#menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#menu li a:hover {
+  border: none;
+  outline: none;
+  color: #1fcdff;
+}

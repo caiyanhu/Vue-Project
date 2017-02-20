@@ -8,7 +8,7 @@
       <div class="col-md-4">
         <div class="input-group">
           <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
-              <img src="../assets/user1.png" alt="userlogo" style="width: 15px;height: 17px">
+              <img src="../static/images/user1.png" alt="userlogo" style="width: 15px;height: 17px">
             </span>
           <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F" id="username"
             type="text" v-model="username" placeholder="请输入用户名">
@@ -21,7 +21,7 @@
       <div class="col-md-4">
         <div class="input-group">
           <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
-              <img src="../assets/lock1.png" alt="locklogo" style="width: 15px;height: 17px">
+              <img src="../static/images/lock1.png" alt="locklogo" style="width: 15px;height: 17px">
             </span>
           <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F" id="password"
             type="password" v-model='password' placeholder="请输入密码">
