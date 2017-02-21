@@ -1,23 +1,28 @@
 <template>
   <div class="container">
-    <img src="../static/images/earth.png" alt="地球">
-    <h4><span class="color1">电动汽车充换电服务</span>
-      <span class="color2">网络互动平台</span></h4>
+    <div class="row">
+      <img src="../static/images/earth.png" alt="地球">
+      <h4><span class="color1">电动汽车充换电服务</span>
+        <span class="color2">网络互动平台</span></h4>
+    </div>
   </div>
 </template>
 <style scoped>
   .container {
-    margin-left: 180px;
+    margin-left: 182px;
+    margin-bottom: 70px;
+    padding-left: 0px;
+    height: 75px;
   }
 
-  div {
+  .row {
+    width: 390px;
     vertical-align: middle;
-    margin-bottom: 100px;
   }
 
-  img,
   h4 {
-    float: left;
+    display: inline;
+    font-size: 16px;
   }
 
   .color1 {

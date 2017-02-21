@@ -21,4 +21,14 @@
     margin-top: 0
   }
 
+  p {
+    font-size: 12px;
+    font-family: "Microsoft YaHei";
+    color: rgba(200, 227, 252, 0.149);
+    text-align: center;
+    line-height: 4.667;
+    z-index: 15;
+    margin-bottom: -12px;
+  }
+
 </style>

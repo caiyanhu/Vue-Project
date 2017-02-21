@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid" style="height: 30px;">
     <div class="row">
       <div class="col-lg-5 col-md-5" id="client">
         <img src="../static/images/client.png" alt="client">
@@ -29,8 +29,12 @@
   span {
     color: #667789;
     cursor: pointer;
-    font-size: 15px;
-    line-height: 30px;
+    /*font-size: 15px;
+    line-height: 30px;*/
+    font-size: 12px;
+    font-family: "FZLTXIHJW";
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.2;
   }
   /*中间*/
 
@@ -70,6 +74,11 @@
   #menu li a {
     color: #FFF;
     text-decoration: none;
+    font-size: 12px;
+    font-family: "FZLTXIHJW";
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    z-index: 43;
   }
 
   #menu li a:hover {
