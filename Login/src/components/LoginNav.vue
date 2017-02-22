@@ -29,8 +29,6 @@
   span {
     color: #667789;
     cursor: pointer;
-    /*font-size: 15px;
-    line-height: 30px;*/
     font-size: 12px;
     font-family: "FZLTXIHJW";
     color: rgba(255, 255, 255, 0.4);

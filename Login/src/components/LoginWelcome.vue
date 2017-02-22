@@ -1,18 +1,18 @@
 <template>
   <div class="container" style="margin-bottom: 55px;">
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4" style="text-align: center;">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: center;">
         <h2 class="welcome_cn">欢迎使用!<span class="welcome_en">&nbsp;&nbsp;|Welcome</span></h2>
       </div>
-      <div class="col-md-4"></div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
     </div>
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4" style="text-align: center;">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: center;">
         <h5 class="subtitle">电动汽车充换电服务网络互动平台</h5>
       </div>
-      <div class="col-md-4"></div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
     </div>
   </div>
 </template>

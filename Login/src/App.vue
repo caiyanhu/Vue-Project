@@ -29,10 +29,10 @@
     }
   }
   $(window).resize(function () {
-    var innerHeight = window.innerHeight;
-    var innerWidth = window.innerWidth;
-    var height_str = innerHeight + 'px';
-    var width_str = innerWidth + 'px';
+    let innerHeight = window.innerHeight;
+    let innerWidth = window.innerWidth;
+    let height_str = innerHeight + 'px';
+    let width_str = innerWidth + 'px';
     $('#app').css('height', height_str);
     $('#app').css('width', width_str);
   })

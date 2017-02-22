@@ -1,14 +1,16 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container container1">
       <div class="row" style="margin-bottom: 30px;">
-        <h2 id="loginTitle" class="text-center">用户登陆</h2>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2 id="loginTitle" class="text-center">用户登陆</h2>
+        </div>
       </div>
     </div>
     <div class="container container1">
       <div class="row inputRow" style="margin-bottom: 30px;">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <div class="input-group">
             <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
               <img src="../static/images/user1.png" alt="userlogo" style="width: 15px;height: 17px;">
@@ -16,53 +18,51 @@
             <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;font-size: 14px;
   font-family: 'Microsoft YaHei';
   color: rgb(191, 235, 255);
-  line-height: 2.929;z-index: 79;" id="username" type="text" v-model="username" placeholder="请输入用户名">
+  line-height: 2.929;z-index: 79;" id="username" type="text" v-model.lazy="username" placeholder="请输入用户名">
           </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
       </div>
       <div class="row inputRow" style="margin-bottom: 30px;">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <div class="input-group">
             <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
               <img src="../static/images/lock1.png" alt="locklogo" style="width: 15px;height: 17px">
             </span>
             <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;color:#FFF;"
-              id="password" type="password" v-model='password' placeholder="请输入密码">
+              id="password" type="password" v-model.lazy='password' placeholder="请输入密码">
           </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
       </div>
       <div class="row inputRow" style="margin-bottom: 30px;">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <div class="row">
-            <div class="col-sm-7 col-md-7">
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
               <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;font-size: 14px;
   font-family: 'Microsoft YaHei';
   color: rgba(191, 235, 255, 0.251);
   line-height: 2.929;z-index: 98;
 " id="verifycode" type="text" v-model='verifycode' placeholder="请输入验证码">
             </div>
-            <div class="col-sm-5 col-md-5">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
               <div class="form-control" id="checkCode" style="height:44px; cursor: pointer;text-align: center;background-color: #FFF;padding: 12px;"
                 @click='createCode'>
                 <span id="1"></span>
                 <span id="2"></span>
                 <span id="3"></span>
                 <span id="4"></span>
-                <span id="5"></span>
-                <span id="6"></span>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
       </div>
       <div class="row inputRow" style="margin-bottom: 30px;">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <div style="display: inline;">
             <input type="checkbox" style="width: 16px;height: 16px;background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;margin-right: 14px; vertical-align: middle;">
             <span style="vertical-align: middle;font-size: 14px;
@@ -78,15 +78,15 @@
             <a href="#">忘记密码?</a>
           </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
       </div>
       <div class="row inputRow" style="margin-bottom: 30px;">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <button type="submit" class="btn btn-default btn-block" @click="alertU" style="height:44px;background-color: #FFBA26;
     color: #FFF;font-size: 16px;font-family: 'Microsoft YaHei';z-index: 115;">登陆</button>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
       </div>
     </div>
   </div>
@@ -105,9 +105,14 @@
     mounted: function () {
       this.createCode()
     },
+    watch: {
+      username: function () {
+        alert("after lazy");
+      }
+    },
     methods: {
       alertU: function () {
-        alert(this.username + ' ' + this.password)
+        alert(typeof (this.password));
       },
       createCode: function () {
         var code = "";
@@ -147,6 +152,12 @@
     /*将容器宽度设置成row的宽度*/
   }
 
+
+
+
+
+
+
   #loginTitle {
     height: 36px;
     line-height: 36px;
@@ -155,10 +166,22 @@
     margin: 0;
   }
 
+
+
+
+
+
+
   .inputRow {
     width: 870px;
-    /*定稿中每个input占260px，而input占row的1/3，所以row占870px*/
+    /*定稿中每个input占260px(左右padding各15px，共290px)，而input占row的1/3，所以row占870px*/
   }
+
+
+
+
+
+
 
   h2 {
     font-size: 18px;
@@ -168,10 +191,22 @@
     z-index: 73;
   }
 
+
+
+
+
+
+
   a:visited,
   a:link {
     text-decoration: none;
   }
+
+
+
+
+
+
 
   a:hover {
     text-decoration: underline;
