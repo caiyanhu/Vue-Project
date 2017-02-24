@@ -13,12 +13,12 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <div class="input-group">
             <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
-              <img src="../static/images/user1.png" alt="userlogo" style="width: 15px;height: 17px;">
+              <img src="../static/images/user2.png" alt="userlogo" style="width: 15px;height: 17px;">
             </span>
-            <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;font-size: 14px;
+            <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.4;border: thin solid #47627F;font-size: 14px;
   font-family: 'Microsoft YaHei';
-  color: rgb(191, 235, 255);
-  line-height: 2.929;z-index: 79;" id="username" type="text" v-model.lazy="username" placeholder="请输入用户名">
+  color: white;
+  line-height: 2.929;z-index: 79;" id="username" type="text" v-model.lazy="username" @keyup.enter="releaseEnter" placeholder="请输入用户名">
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
@@ -27,11 +27,11 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <div class="input-group">
-            <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.5;border: thin solid #47627F">
-              <img src="../static/images/lock1.png" alt="locklogo" style="width: 15px;height: 17px">
+            <span class="input-group-addon" style="background-color: #1A344F;opacity: 0.4;border: thin solid #47627F">
+              <img src="../static/images/lock2.png" alt="locklogo" style="width: 15px;height: 17px">
             </span>
-            <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;color:#FFF;"
-              id="password" type="password" v-model.lazy='password' placeholder="请输入密码">
+            <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.4;border: thin solid #47627F;color:white;"
+              id="password" type="password" v-model.lazy='password' @keyup.enter="releaseEnter" placeholder="请输入密码">
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
@@ -41,19 +41,15 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-              <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.5;border: thin solid #47627F;font-size: 14px;
+              <input class="form-control" style="height:44px; background-color: #1A344F;opacity: 0.4;border: thin solid #47627F;font-size: 14px;
   font-family: 'Microsoft YaHei';
-  color: rgba(191, 235, 255, 0.251);
+  color: white;
   line-height: 2.929;z-index: 98;
-" id="verifycode" type="text" v-model='verifycode' placeholder="请输入验证码">
+" id="verifycode" type="text" v-model.lazy='verifycode' @keyup.enter="releaseEnter" placeholder="请输入验证码">
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-              <div class="form-control" id="checkCode" style="height:44px; cursor: pointer;text-align: center;background-color: #FFF;padding: 12px;"
-                @click='createCode'>
-                <span id="1"></span>
-                <span id="2"></span>
-                <span id="3"></span>
-                <span id="4"></span>
+              <div class="form-control" id="checkCode" style="height:44px; cursor: pointer;text-align: center;background-color: #FFF;padding: 0px;border: 0;">
+                <img id="yzmPic" alt="logo1" style="border-radius: 4px;margin-top: 11px;" onclick="this.src='../../validate.so?'+new Date().getTime()">
               </div>
             </div>
           </div>
@@ -83,7 +79,7 @@
       <div class="row inputRow" style="margin-bottom: 30px;">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <button type="submit" class="btn btn-default btn-block" @click="alertU" style="height:44px;background-color: #FFBA26;
+          <button type="submit" class="btn btn-default btn-block" @click="doLogin" style="height:44px;background-color: #FFBA26;
     color: #FFF;font-size: 16px;font-family: 'Microsoft YaHei';z-index: 115;">登陆</button>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
@@ -93,55 +89,162 @@
 </template>
 <script>
   import $ from 'jquery'
+  import '../static/js/jbase64.js'
   export default {
     data() {
       return {
         username: '',
         password: '',
-        verifycode: ''
+        verifycode: '',
+        validationRules: {
+          isNull: function (str) {
+            return (str == "" || typeof str != 'string');
+          },
+          betweenLength: function (str, _min, _max) {
+            return (str.length >= _min && str.length <= _max);
+          }
+        }
       }
     },
     // 当Vue挂载完成后，自动调用下面的函数。这样页面一加载，验证码就出来了
     mounted: function () {
-      this.createCode()
-    },
-    watch: {
-      username: function () {
-        alert("after lazy");
-      }
+      $('#checkCode img').attr('src', '../../validate.so');
     },
     methods: {
-      alertU: function () {
-        alert(typeof (this.password));
+      setCookie: function (name, value, expiredays) {
+        let expdate = new Date();
+        expdate.setDate(expdate.getDate() + expiredays);
+        document.cookie = name + "=" + value + ((expiredays == null) ? "" : ";expires=" + expdate.toString());
       },
-      createCode: function () {
-        var code = "";
-        var codeLength = 4; //验证码的长度
-        var checkCode = document.getElementById("checkCode");
-        var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-          'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-          'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-          'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-          'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
-        for (var i = 0; i < codeLength; i++) {
-          var charNum = Math.floor(Math.random() * 52);
-          code += codeChars[charNum];
-        }
-        for (let i = 0; i < codeLength; i++) {
-          let id = "" + (i + 1);
-          var temp = document.getElementById(id);
-          temp.innerHTML = code[i] + "";
-          let anotherId = '#' + (i + 1);
-          var $current = $(anotherId);
-          $current.css("color", this.randomColor())
+      strTrim: function (str) {
+        return str.replace(/(^\s*)|(\s*$)/g, "");
+      },
+      // 三个输入框下按下enter键
+      releaseEnter: function () {
+        if (this.verifycode.length == 4) {
+          this.doLogin();
         }
       },
-      randomColor: function () {
-        let color1 = Math.floor(Math.random() * 255);
-        let color2 = Math.floor(Math.random() * 255);
-        let color3 = Math.floor(Math.random() * 255);
-        return "rgb(" + color1 + "," + color2 + "," + color3 + ")";
-      }
+      // 对比输入的验证码和session中的验证码
+      compareYzm: function () {
+        let result = false;
+        if (this.verifycode != "") {
+          $.ajax({
+            url: "../../login!gotValidation.action",
+            async: false,
+            type: "POST",
+            data: {
+              validatcode: this.verifycode
+            },
+            success: function (msg) {
+              result = msg.compare;
+              if (!result) {
+                // 提示验证码输入错误
+                alert("验证码输入错误");
+              }
+            }
+          });
+        }
+        return result;
+      },
+      // 对输入的内容进行非空检验，然后比较输入的验证码是否正确
+      check: function () {
+        let result = false;
+        let loginName = this.strTrim(this.username);
+        let loginPwd = this.strTrim(this.password);
+        let loginYzm = this.strTrim(this.verifycode);
+        if (this.validationRules.isNull(loginName)) {
+          // 提示用户名为空
+          alert("用户名为空");
+          result = false;
+        } else if (!this.validationRules.isNull(loginName) && this.validationRules.isNull(loginPwd)) {
+          // 提示密码为空
+          alert("密码为空");
+          result = false;
+        } else if (!this.validationRules.isNull(loginName) && !this.validationRules.isNull(loginPwd) && this.validationRules
+          .isNull(loginYzm)) {
+          // 提示验证码为空
+          alert("验证码为空");
+          result = false;
+        } else if (!this.validationRules.isNull(loginName) && !this.validationRules.isNull(loginPwd) && !this.validationRules
+          .isNull(loginYzm)) {
+          result = this.compareYzm();
+        }
+        // 在检查发现错误的情况下，验证码图片要刷新
+        if (!result) {
+          $('#yzmPic').click();
+        }
+        return result;
+      },
+      // 点击登录按钮
+      doLogin: function () {
+        if (!this.check()) {
+          return;
+        }
+        let loginName = this.strTrim(this.username);
+        let orignPwd = this.strTrim(this.password);
+        let loginPwd = BASE64.encoder(this.password);
+        let loginYzm = this.verifycode;
+        // 勾选了记住密码
+        if ($('#verifycode').prop('checked')) {
+          this.setCookie("timerember", "true", 31);
+          this.setCookie("loginname", loginName, 31);
+          this.setCookie("loginpwd", orignPwd, 31);
+        } else {
+          this.setCookie("timerember", "false", -1);
+          this.setCookie("loginname", "", -1);
+          this.setCookie("loginpwd", "", -1);
+        }
+        $.ajax({
+          url: '../../login!validUser.action',
+          async: false,
+          cache: false,
+          type: "POST",
+          data: {
+            userId: loginName,
+            accType: 1
+          },
+          success: function (msg) {
+            if (msg.bOk == false) {
+              alert(msg.message);
+              return;
+            } else {
+              if (msg.message != null && msg.message != "" && msg.message != "正常") {
+                if (!confirm(msg.message)) {
+                  return;
+                }
+              }
+              $.ajax({
+                url: '../../login!doLogin.action',
+                async: false,
+                cache: false,
+                type: 'POST',
+                data: {
+                  userId: loginName,
+                  passWord: loginPwd,
+                  accType: 1,
+                  accId: msg.accId,
+                  validatcode: loginYzm
+                },
+                success: function (msg) {
+                  if (msg.bOk == false) {
+                    $('#yzmPic').click();
+                    alert(msg.message);
+                    return;
+                  }
+                  // 登录成功，刷新页面
+                  if (msg.total > 1) {
+                    alert("跳转");
+                    window.location.href = 'roleselect.jsp';
+                  } else {
+                    window.location.href = '../../index.jsp';
+                  }
+                }
+              });
+            }
+          }
+        });
+      } //end doLogin
     }
   }
 
@@ -152,12 +255,6 @@
     /*将容器宽度设置成row的宽度*/
   }
 
-
-
-
-
-
-
   #loginTitle {
     height: 36px;
     line-height: 36px;
@@ -166,22 +263,10 @@
     margin: 0;
   }
 
-
-
-
-
-
-
   .inputRow {
     width: 870px;
     /*定稿中每个input占260px(左右padding各15px，共290px)，而input占row的1/3，所以row占870px*/
   }
-
-
-
-
-
-
 
   h2 {
     font-size: 18px;
@@ -191,22 +276,10 @@
     z-index: 73;
   }
 
-
-
-
-
-
-
   a:visited,
   a:link {
     text-decoration: none;
   }
-
-
-
-
-
-
 
   a:hover {
     text-decoration: underline;

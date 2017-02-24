@@ -4,8 +4,9 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    // 将build后生成的文件夹名改为VueLogin
+    index: path.resolve(__dirname, '../VueLogin/index.html'),
+    assetsRoot: path.resolve(__dirname, '../VueLogin'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '.',
     productionSourceMap: true,
