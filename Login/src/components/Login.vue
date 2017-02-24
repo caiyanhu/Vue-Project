@@ -90,6 +90,7 @@
 <script>
   import $ from 'jquery'
   import '../static/js/jbase64.js'
+  import '../static/js/Md5.js'
   export default {
     data() {
       return {
@@ -109,6 +110,11 @@
     // 当Vue挂载完成后，自动调用下面的函数。这样页面一加载，验证码就出来了
     mounted: function () {
       $('#checkCode img').attr('src', '../../validate.so');
+    },
+    watch: {
+      password: function () {
+        this.password = hex_md5(this.password);
+      }
     },
     methods: {
       setCookie: function (name, value, expiredays) {
